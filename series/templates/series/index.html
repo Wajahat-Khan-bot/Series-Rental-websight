@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block Content %}
+    <table class = 'table table-bordered table-hover'>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Release Date</th>
+                <th>Daily Rate</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {%for serie in series%}
+                <tr>
+                    <td>
+                        <a href="{% url 'series:details' serie.id %}">{{serie.title}}</a>
+                    </td>
+                    <td>{{serie.genre}}</td>
+                    <td>{{serie.release_date}}</td>
+                    <td>{{serie.daily_rate}}</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+{% endblock  %}
+
